@@ -3,7 +3,7 @@
 #include <iostream>
 #include <fstream>
 #include <iomanip>
-#include <list>
+#include <set>
 #include <cstdlib>
 #include <ctime>
 #include "Goat.h"
@@ -11,10 +11,10 @@ using namespace std;
 
 const int SZ_NAMES = 200, SZ_COLORS = 25, MAX_AGE = 20;
 
-int select_goat(list < Goat > trip);
-void delete_goat(list < Goat > & trip);
-void add_goat(list < Goat > & trip, string[], string[]);
-void display_trip(list < Goat > trip);
+int select_goat(set < Goat > trip);
+void delete_goat(set < Goat > & trip);
+void add_goat(set < Goat > & trip, string[], string[]);
+void display_trip(set < Goat > trip);
 int main_menu();
 
 int main() {
@@ -34,7 +34,7 @@ int main() {
     fin1.close();
 
     // declaration
-    list < Goat > trip;
+    set < Goat > trip;
     int m;
 
     do {
@@ -82,7 +82,7 @@ int main_menu() {
     return choice;
 }
 
-void add_goat(list < Goat > & trip, string n[], string c[]) {
+void add_goat(set < Goat > & trip, string n[], string c[]) {
     // main_menu() outputs the GM3K1 engine and then obtains, 
     //              validates, and returns the user's choice.
     // arguments: none
@@ -91,11 +91,11 @@ void add_goat(list < Goat > & trip, string n[], string c[]) {
     int a = rand() % MAX_AGE;
     int j = rand() % SZ_COLORS + 1;
     Goat g(n[i], a, c[j]);
-    trip.push_back(g);
+    trip.insert(g);
     cout << g.get_name() << " was added to the trip.\n";
 }
 
-int select_goat(list < Goat > trip) {
+int select_goat(set < Goat > trip) {
     // select_goat() display a submenu, and get the user's choice of goat
     // arguments: the trip--a list of Goat
     // returns: the integer the user choose
@@ -113,7 +113,7 @@ int select_goat(list < Goat > trip) {
     return goat - 1;
 }
 
-void delete_goat(list < Goat > & trip) {
+void delete_goat(set < Goat > & trip) {
     // delete_goat() select and delete the goat of the user's choice.
     // arguments: the trip--a list of Goat(by refference)
     // returns: none
@@ -133,7 +133,7 @@ void delete_goat(list < Goat > & trip) {
     trip.erase(it);
 }
 
-void display_trip(list < Goat > trip) {
+void display_trip(set < Goat > trip) {
     // display_trip() displys the trip
     // arguments: the trip--a list of Goat
     // returns: none
