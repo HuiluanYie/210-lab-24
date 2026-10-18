@@ -88,8 +88,8 @@ void add_goat(set < Goat > & trip, string n[], string c[]) {
     // arguments: none
     // returns: the integer the user choose
     int i = rand() % SZ_NAMES;
-    int a = rand() % MAX_AGE;
-    int j = rand() % SZ_COLORS + 1;
+    int a = rand() % (MAX_AGE + 1);
+    int j = rand() % SZ_COLORS;
     Goat g(n[i], a, c[j]);
     trip.insert(g);
     cout << g.get_name() << " was added to the trip.\n";
