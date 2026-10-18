@@ -66,7 +66,7 @@ int main_menu() {
     // arguments: none
     // returns: the integer the user choose
     int choice;
-    cout << "\n*** GOAT MANAGER 3001 *** \n";
+    cout << "\n*** GOAT MANAGER 3002 *** \n";
     cout << "[1] Add a goat \n";
     cout << "[2] Delete a goat \n";
     cout << "[3] List goats \n";
